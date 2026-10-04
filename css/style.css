@@ -18,7 +18,7 @@ nav ul > li {
     display: inline-block;
 }
 
-nav ul > li > a {
+nav ul > li > a.page-selection-link {
     display: inline-block;
     text-decoration: none;
     padding: 0.5em;
@@ -27,7 +27,7 @@ nav ul > li > a {
     border-radius: 0.5em;
 }
 
-nav ul > li > a:hover {
+nav ul > li > a.page-selection-link:hover {
     background-color: #403d39;
     color: #ccc5b9;
 }
@@ -66,10 +66,49 @@ div#wrapper > div#content {
     width: 100%;
     height: 50%;
     padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 div#wrapper > footer#footer {
     border-top: 0.5px solid #403d39;
+}
+
+.hidden {
+    display: none;
+}
+
+div.section {
+    width: 100%;
+    height: 100%;
+}
+
+div.grid-layout {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 100%;
+    height: 100%;
+    gap: 0.5em;
+}
+
+div.grid-layout > div.grid-item {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #252422;
+}
+
+div.grid-layout > div.grid-item.empty::before {
+    position: relative;
+    display: inline-block;
+    content: "Soon...";
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+div.grid-layout > div.grid-item.empty {
+    background-color: #ccc5b9;
+    border: 1px solid #252422;
 }
 
 @media (max-width: 500px) {
@@ -88,5 +127,9 @@ div#wrapper > footer#footer {
         height: 100%;
         left: 0;
         transform: translate(0, 0);
+    }
+
+    div.grid-layout {
+        grid-template-columns: auto auto;
     }
 }
